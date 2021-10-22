@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Starting Build'
-                withMaven {
+                withMaven (maven: 'maven-3') {
                     sh "mvn clean compile"
                 }
             }
@@ -12,7 +12,7 @@ pipeline {
         stage('Tests') {
             steps {
                 echo 'Starting tests'
-                withMaven {
+                withMaven (maven: 'maven-3'){
                     sh "mvn clean compile"
                 }
             }
